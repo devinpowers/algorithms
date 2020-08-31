@@ -87,6 +87,10 @@ def compute_average(n):
     return (end-start)/ n
 
 
+def find_max(data):
+    
+    
+
 
 
 
