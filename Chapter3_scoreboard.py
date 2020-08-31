@@ -63,3 +63,16 @@ class Scoreboard:
         self._board[j] = self._board[j-1]   # shift entry from j-1 to j
         j -= 1                              # and decrement j
       self._board[j] = entry                # when done, add new entry
+      
+
+if __name__ == '__main__':
+  board = Scoreboard(5)
+  for e in (
+    ('Rob', 750), ('Mike',1105), ('Rose', 590), ('Jill', 740),
+    ('Jack', 510), ('Anna', 660), ('Paul', 720), ('Bob', 400),
+    ):
+    ge = GameEntry(e[0], e[1])
+    board.add(ge)
+    print('After considering {0}, scoreboard is:'.format(ge))
+    print(board)
+    print()
