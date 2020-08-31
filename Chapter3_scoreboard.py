@@ -27,6 +27,10 @@ class GameEntry:
     """Return string representation of the entry."""
     return '({0}, {1})'.format(self._name, self._score) # e.g., '(Bob, 98)'
 
+
+
+
+
 class Scoreboard:
   """Fixed-length sequence of high scores in nondecreasing order."""
 
@@ -66,12 +70,10 @@ class Scoreboard:
       
 
 if __name__ == '__main__':
-  board = Scoreboard(5)
-  for e in (
-    ('Rob', 750), ('Mike',1105), ('Rose', 590), ('Jill', 740),
-    ('Jack', 510), ('Anna', 660), ('Paul', 720), ('Bob', 400),
-    ):
+  board = Scoreboard(5) #number of entries into scoreboard
+  for e in (('Rob', 750), ('Mike',1105), ('Rose', 590), ('Jill', 740),('Jack', 510), ('Anna', 660), ('Paul', 720), ('Bob', 400),):
     ge = GameEntry(e[0], e[1])
+    
     board.add(ge)
     print('After considering {0}, scoreboard is:'.format(ge))
     print(board)
