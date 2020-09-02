@@ -74,4 +74,39 @@ def msort(x):
 f = [2,31,31,4,231,231,4,20,23,0]
 print(msort(f))
 
+'''https://www.edureka.co/blog/python-program-merge-sort/#:~:text=Advantages%20and%20Usage-,What%20is%20Merge%20Sort%20in%20Python%3F,for%20merging%20the%20sorted%20arrays.'''
+def mergeSort(nlist):
+    print("Splitting ",nlist)
+    if len(nlist)>1:
+        mid = len(nlist)//2
+        lefthalf = nlist[:mid]
+        righthalf = nlist[mid:]
+ 
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+        i=j=k=0      
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                nlist[k]=lefthalf[i]
+                i=i+1
+            else:
+                nlist[k]=righthalf[j]
+                j=j+1
+            k=k+1
+ 
+        while i < len(lefthalf):
+            nlist[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+ 
+        while j < len(righthalf):
+            nlist[k]=righthalf[j]
+            j=j+1
+            k=k+1
+    print("Merging ",nlist)
+ 
+nlist = [3,1,4,1,5,9,2,6,5,4]
+mergeSort(nlist)
+print(nlist)
+
 
