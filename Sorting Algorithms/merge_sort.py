@@ -35,11 +35,43 @@ def merge_sort(S):
   merge(S1, S2, S)        # merge sorted halves back into S
 
 
-D = [3,12,9,8,1,10,100,30]
+S = [85,24,63,45,17,31,96,50]
 
-merge_sort(D)
+merge_sort(S)
 
-print(D)
+print(S)
 
 '''Returned'''
-[1, 3, 3, 8, 9, 10, 10, 12, 23, 30, 90, 100]
+
+
+def msort(x):
+    result = []
+    if len(x) < 2:
+        return x
+    mid = int(len(x)/2)
+    y = msort(x[:mid])
+    z = msort(x[mid:])
+    while (len(y) > 0) or (len(z) > 0):
+        if len(y) > 0 and len(z) > 0:
+            if y[0] > z[0]:
+                result.append(z[0])
+                z.pop(0)
+            else:
+                result.append(y[0])
+                y.pop(0)
+        elif len(z) > 0:
+            for i in z:
+                result.append(i)
+                z.pop(0)
+        else:
+            for i in y:
+                result.append(i)
+                y.pop(0)
+    return result
+
+
+
+f = [2,31,31,4,231,231,4,20,23,0]
+print(msort(f))
+
+
