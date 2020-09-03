@@ -41,6 +41,7 @@ def Merge (Left, Right, Array):
 
 
 def Merge_Sort(Array):
+    '''Recursive function to sort an Array'''
     
     n = len(Array)
     
@@ -50,16 +51,16 @@ def Merge_Sort(Array):
     
     mid = n // 2
     
-    Left = Array[:mid]
+    Left = n[:mid]
     
-    Right = Array[mid::]
+    Right = n[mid::]
     
     
-    for i in range(0:mid):
+    for i in range(Left):
         
         Left[i] = A[i]
         
-    for i in range(mid: n-1):
+    for i in range(Right):
         
         Right[i-mid] = A[i]
         
