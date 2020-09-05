@@ -56,12 +56,17 @@ def Merge_Sort(Array):
       
     # calling the merge function
     Merge(Left, Right, Array)
-    
+
+b = [6,90,1,8,54,67,0,23,900,67,6,8,12,6]
 a = [2,4,1,6,8,5,3,7]
 
 Merge_Sort(a)
 
+Merge_Sort(b)
+
 print(a)
+
+print(b)
 
 'Results: [1, 2, 3, 4, 5, 6, 7, 8]'
 
