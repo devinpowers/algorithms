@@ -1,4 +1,5 @@
 
+import time
 '''Merge Sort Function Built By ME!!!!!'''
 
 def Merge(Left, Right, Array):
@@ -60,13 +61,18 @@ def Merge_Sort(Array):
 b = [6,90,1,8,54,67,0,23,900,67,6,8,12,6]
 a = [2,4,1,6,8,5,3,7]
 
-Merge_Sort(a)
+start= time.time()
 
-Merge_Sort(b)
-
+Merge_Sort(a) 
 print(a)
 
-print(b)
+End = time.time()
+
+#print('Time to solve algo:', End - start)
+Merge_Sort(b)
+
+
+#print(b)
 
 'Results: [1, 2, 3, 4, 5, 6, 7, 8]'
 
