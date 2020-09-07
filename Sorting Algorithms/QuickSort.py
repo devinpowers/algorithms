@@ -16,6 +16,7 @@ def partition(arr, low, high):
     arr[i+1], arr[high] = arr[high], arr[i+1]
     return (i+1)
  
+    
 
 
 
@@ -54,7 +55,7 @@ def QuickSort(Array, Start, End):
     if Start >= End:           # exit condtions
         return
     
-    p_index = Partition(Array,Start,End)
+    p_index = partition(Array,Start,End)
     
     QuickSort(Array, Start, p_index -1)
     
