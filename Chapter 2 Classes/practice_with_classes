@@ -1,0 +1,24 @@
+
+class Employee:
+    
+    def __init__(self, first, last, email):
+        
+        self.first = first
+        self.last = last
+        self.email = email
+        
+    def fullname(self):
+        
+        '''returns the fullname of the person'''
+        return '{} {}'.format(self.first, self.last)
+    
+    
+    
+    
+emp_1 = Employee('Devin','Powers', 'powers88@msu.edu')
+
+emp_2 = Employee('Lebron', 'James', 'LBJ@lakers.com')
+
+
+print(emp_1)
+
