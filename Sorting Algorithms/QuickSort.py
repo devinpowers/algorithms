@@ -1,3 +1,6 @@
+
+'''QuickSort!!!!!!'''
+
 def Partition(A ,start, end):
     
     pivot = A[end]
@@ -6,17 +9,14 @@ def Partition(A ,start, end):
     
     
     for i in range(start,end):
-        print('Index:', i)
-    
+        
         if A[i] <= pivot:
-            
             
             #swap number at index with the P_index!
             A[p_index], A[i] = A[i], A[p_index]
             
             p_index = p_index +1
             
-        
     # this is swaping the pivot point between the sorted values
     
     A[p_index], A[end] = A[end], A[p_index]
@@ -24,11 +24,8 @@ def Partition(A ,start, end):
     
     return p_index
     
-
-
          
 def QuickSort(A, start, end):
-    
     
     if start > end:
         return
@@ -43,7 +40,7 @@ def QuickSort(A, start, end):
     
     
 
-array = [7,2,1,6,8,5,3,4]
+array = [7,2,1,6,8,5,3,102,1,31,45,232,4,25,12,8,2,4,2,0,9,12,6,2,4,1,3,4,6,7,8,4,42,32,100,12,23,4,32,5,6,546,43,2,69,70,69]
 
 n = len(array)
 
