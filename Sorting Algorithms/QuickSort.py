@@ -1,46 +1,53 @@
+def Partition(A ,start, end):
+    
+    pivot = A[end]
+ 
+    p_index = start
+    
+    
+    for i in range(start,end):
+        print('Index:', i)
+    
+        if A[i] <= pivot:
+            
+            
+            #swap number at index with the P_index!
+            A[p_index], A[i] = A[i], A[p_index]
+            
+            p_index = p_index +1
+            
+        
+    # this is swaping the pivot point between the sorted values
+    
+    A[p_index], A[end] = A[end], A[p_index]
 
-def partition(arr, low, high):
-    i = (low-1)         # index of smaller element
-    pivot = arr[high]     # pivot
- 
-    for j in range(low, high):
- 
-        # If current element is smaller than or
-        # equal to pivot
-        if arr[j] <= pivot:
- 
-            # increment index of smaller element
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
- 
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
- 
+    
+    return p_index
     
 
 
-def QuickSort(Array, Start, End):
+         
+def QuickSort(A, start, end):
     
-    if Start >= End:           # exit condtions
+    
+    if start > end:
         return
     
-    p_index = partition(Array,Start,End)
+    p_index = Partition(A, start, end)
     
-    QuickSort(Array, Start, p_index -1)
+    # recursive Calls here:
+        
+    QuickSort(A, start, p_index-1)
     
-    QuickSort(Array, p_index+1, End)
+    QuickSort(A,p_index +1, end)
     
     
-    
 
+array = [7,2,1,6,8,5,3,4]
 
-a = [3,4,2,31,223,12,0,40]
+n = len(array)
 
-n = len(a)
+QuickSort(array,0,n-1)
 
-print(QuickSort(a,0, n-1))
-print(a)
-
-
-
+print(array)
     
