@@ -19,37 +19,6 @@ def partition(arr, low, high):
     
 
 
-
-''' QuickSort '''
-
-
-
-def Partition(A, Start, End):
-    
-    '''Selecting the Pivot and Stuff'''
-    
-    i = (Start -1)
-    
-    Pivot = A[End]
-    
-
-    
-    for j in range(Start, End):
-        
-       
-        if A[j] <= Pivot:
-            i = i +1
-            
-            A[i], A[j] = A[j], A[i]
-    
-    
-    A[i+1], A[End] = A[End], A[i+1]
-    
-    p_index = i 
-    
-    return (p_index +1)
-
-
 def QuickSort(Array, Start, End):
     
     if Start >= End:           # exit condtions
@@ -70,6 +39,7 @@ a = [3,4,2,31,223,12,0,40]
 n = len(a)
 
 print(QuickSort(a,0, n-1))
+print(a)
 
 
 
