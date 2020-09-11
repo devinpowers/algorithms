@@ -33,83 +33,108 @@ class Person:
         return self.first == o.first and self.last == o.last and self.email == o.email
     
     
-def Merge(Left, Right, Array):
+def merge(left, right, ordering):
     
-    '''Merges left and right sides of an array'''
-    
-    Left_length = len(Left)
-        
-    Right_length = len(Right)
-    
-    i = j = k = 0
-        
-    while (i < Left_length and j < Right_length):
-        
-        if Left[i] <= Right[j]:
-            Array[k] = Left[i]
-            i = i + 1
-        
+    """
+    Merges two lists in alphabetical order
+    :param a: a list of People
+    :param b: a list of People
+    :param c: a function that orders two People
+    :return: a merged list of param a and b, and a count of the comparisons
+    """
+    merged = []
+    count = 0
+    while left and right:
+        #count of number of comparisons made
+        count += 1
+        #Get the correct name from either side
+        if ordering(left[0], right[0]):
+            merged.append(left.pop(0))
         else:
-            Array[k] = Right[j]  
-            j = j+ 1
-        k = k + 1
-        
-    # in case one of the letters runs out before the other
-    while i < Left_length:
-        
-        Array[k] = Left[i]
-        i = i + 1
-        k = k + 1
-        
-    while j < Right_length:
-        
-        Array[k] = Right[j]
-        j = j + 1
-        k = k + 1
-        
-    return Array
+            merged.append(right.pop(0))
+    #Add remaining names to the merged list
+    if left:
+        merged += left
+    if right:
+        merged += right
+    #the merged list and count
+    return merged, count
 
-
-
-
-def Merge_Sort(Array): 
-    '''Recursive function to sort an Array'''
-    n = len(Array)
+def merge_sort(roster, ordering):
+    """
+    Sorts roster using the ordering function and merge sort
+    :param a: a list of People
+    :param b: a function that orders two people
+    :return: a sorted version of roster
+    """
+    count = 0
     
-    if n < 2:    
-        return
-    middle = n // 2
+    #already sorted if only one item
+    if len(roster) <= 1:
+        return roster, count
     
-        # have to make right and left subarrays        
-    Left = Array[0:middle]
-          
-    Right = Array[middle:]
-  
-        #Recursive functions
-
-    Merge_Sort(Left)
+    #Sort left and right sides
     
-    Merge_Sort(Right)
-      
-    # calling the merge function
-    Merge(Left, Right, Array)
+    left, l_count = merge_sort(roster[len(roster)//2:], ordering)
+    
+    right, r_count = merge_sort(roster[:len(roster)//2], ordering)
+    
+    #Merge the lists
+    
+    merged_list, m_count = merge(left, right, ordering)
+    
+    #Add the counts
+    
+    count += l_count + r_count + m_count
+    
+    #the merged list and count
+    return merged_list, count
 
 
 
 
-def order_first_name():
-    pass
+def order_first_name(a, b):
+    """
+    Orders two people by their first names
+    :param a: a Person
+    :param b: a Person
+    :return: True if a comes before b alphabetically and False otherwise
+    """
+    if (a.first < b.first) or (a.first == b.first and a.last < b.last):
+        return True
+    return False
 
-def order_last_name():
-    pass
+
+def order_last_name(a, b):
+    """
+    Orders two people by their last names
+    :param a: a Person
+    :param b: a Person
+    :return: True if a comes before b alphabetically and False otherwise
+    """
+    if (a.last < b.last) or (a.last == b.last and a.first < b.first):
+        return True
+    return False
+
+
 
 def is_alphabetized():
     
     '''Should rn in Big Oh (n) time and'''
     pass
 
-def alphabetize():
-    '''will return the number of comparisons made '''
-    pass
+def alphabetize(roster, ordering):
+    
+    """
+    Alphabetizes the roster according to the given ordering
+    :param roster: a list of people
+    :param ordering: a function comparing two elements
+    :return: a sorted version of roster
+    :return: the number of comparisons made
+    """
+    
+    roster, count = merge_sort(roster, ordering)
+    
+    return (list(roster), count)
 
 
