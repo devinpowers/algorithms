@@ -29,13 +29,72 @@ class Person:
     def __str__(self):
         return '{} - {}'.format(self.fullname(), self.email)
 
-
+    def __eq__(self, o):
+        return self.first == o.first and self.last == o.last and self.email == o.email
     
-def merge():
-    pass
+    
+def Merge(Left, Right, Array):
+    
+    '''Merges left and right sides of an array'''
+    
+    Left_length = len(Left)
+        
+    Right_length = len(Right)
+    
+    i = j = k = 0
+        
+    while (i < Left_length and j < Right_length):
+        
+        if Left[i] <= Right[j]:
+            Array[k] = Left[i]
+            i = i + 1
+        
+        else:
+            Array[k] = Right[j]  
+            j = j+ 1
+        k = k + 1
+        
+    # in case one of the letters runs out before the other
+    while i < Left_length:
+        
+        Array[k] = Left[i]
+        i = i + 1
+        k = k + 1
+        
+    while j < Right_length:
+        
+        Array[k] = Right[j]
+        j = j + 1
+        k = k + 1
+        
+    return Array
 
-def merge_sort():
-    pass
+
+
+
+def Merge_Sort(Array): 
+    '''Recursive function to sort an Array'''
+    n = len(Array)
+    
+    if n < 2:    
+        return
+    middle = n // 2
+    
+        # have to make right and left subarrays        
+    Left = Array[0:middle]
+          
+    Right = Array[middle:]
+  
+        #Recursive functions
+
+    Merge_Sort(Left)
+    
+    Merge_Sort(Right)
+      
+    # calling the merge function
+    Merge(Left, Right, Array)
+
+
 
 
 def order_first_name():
