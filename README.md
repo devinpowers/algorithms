@@ -15,6 +15,10 @@ Each Chapter Folder will contain notes and code regarding the topics discussed.
 
 # Chapter 12: Sorting and Selection
 
+1. Insertion Sort
+2. Merge Sort
+3. Quick Sort
+
 
 In in the Projects folder I will add projects based on topics in the book that I am working on.
 
