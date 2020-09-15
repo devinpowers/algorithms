@@ -46,3 +46,14 @@ def pretty_print_numbers(num):
         pretty_print_numbers(num//10)
         print(num)
 
+
+def mult(a,b):
+    '''Simply multiper using recursion'''
+    
+    if b == 1:
+        
+        return a
+    else:
+        return a + mult(a, b-1)
+    
+    
