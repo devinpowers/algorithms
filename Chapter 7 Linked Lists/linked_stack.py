@@ -53,3 +53,14 @@ class LinkedStack:
     self._head = self._head._next           # bypass the former top node
     self._size -= 1
     return answer
+
+
+a = LinkedStack()
+b = LinkedStack()
+c = LinkedStack()
+
+
+a.push(3)
+b.push(45)
+c.push(69)
+
