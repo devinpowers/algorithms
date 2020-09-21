@@ -55,12 +55,13 @@ class LinkedStack:
     return answer
 
 
-a = LinkedStack()
-b = LinkedStack()
-c = LinkedStack()
+l_list = LinkedStack()
 
-
-a.push(3)
-b.push(45)
-c.push(69)
+l_list.push(42)
+l_list.push(84)
+l_list.push(69)
+l_list.push(23)
+l_list.push(7)
+l_list.push(0)
+l_list.push(89)
 
