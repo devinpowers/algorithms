@@ -4,6 +4,7 @@
 Created on Sun Sep 20 14:37:19 2020
 
 Linked Lists
+https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 @author: devinpowers
 """
@@ -24,6 +25,7 @@ class LinkedList:
     # List object 
     def __init__(self):  
         self.head = None
+        
 
 # Code execution starts here 
 if __name__=='__main__': 
@@ -32,6 +34,10 @@ if __name__=='__main__':
     llist = LinkedList() 
   
     llist.head = Node(1) 
+    
     second = Node(2) 
+    
     third = Node(3) 
         
+    
+    
