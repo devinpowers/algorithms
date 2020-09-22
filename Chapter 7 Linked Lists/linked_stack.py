@@ -5,6 +5,7 @@ from exceptions import Empty
 class LinkedStack:
   """LIFO Stack implementation using a singly linked list for storage."""
 
+
   #-------------------------- nested _Node class --------------------------
   class _Node:
     """Lightweight, nonpublic class for storing a singly linked node."""
