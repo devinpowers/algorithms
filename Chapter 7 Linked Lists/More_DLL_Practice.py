@@ -50,7 +50,7 @@ class DoublyLinkedList:
   
         # 1. Check if the given prev_node is None 
         if prev_node is None: 
-            print "the given previous node cannot be NULL"
+            print( "the given previous node cannot be NULL")
             return 
   
         # 2. allocate new node 
@@ -106,15 +106,15 @@ class DoublyLinkedList:
     # starting from the given node 
     def printList(self, node): 
   
-        print "\nTraversal in forward direction"
+        print ("\nTraversal in forward direction")
         while(node is not None): 
-            print " % d" %(node.data), 
+            print( " % d" %(node.data)), 
             last = node 
             node = node.next
   
-        print "\nTraversal in reverse direction"
+        print( "\nTraversal in reverse direction")
         while(last is not None): 
-            print " % d" %(last.data), 
+            print( " % d" %(last.data)), 
             last = last.prev 
   
 # Driver program to test above functions 
@@ -141,5 +141,5 @@ llist.append(4)
 # So linked list becomes 1->7->8->6->4->None 
 llist.insertAfter(llist.head.next, 8) 
   
-print "Created DLL is: ", 
+print("Created DLL is: "), 
 llist.printList(llist.head) 
