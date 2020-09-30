@@ -53,6 +53,9 @@ class CreditCard:
     """Process customer payment that reduces balance."""
     self._balance -= amount
 
+
+''' Creating some Credit Card for our Class to work with '''
+
 if __name__ == '__main__':
   wallet = []
   wallet.append(CreditCard('Devin Powers', 'Michigan Savings',
@@ -77,3 +80,9 @@ if __name__ == '__main__':
       wallet[c].make_payment(100)
       print('New balance =', wallet[c].get_balance())
     print()
+
+
+
+
+
+

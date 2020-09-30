@@ -1,25 +1,8 @@
-# Copyright 2013, Michael H. Goldwasser
-#
-# Developed for use with the book:
-#
-#    Data Structures and Algorithms in Python
-#    Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser
-#    John Wiley & Sons, 2013
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .credit_card import CreditCard
+'''Working on Inheritance'''
+
+
+from credit_card import CreditCard
 
 class PredatoryCreditCard(CreditCard):
   """An extension to CreditCard that compounds interest and fees."""
@@ -55,3 +38,20 @@ class PredatoryCreditCard(CreditCard):
       # if positive balance, convert APR to monthly multiplicative factor
       monthly_factor = pow(1 + self._apr, 1/12)
       self._balance *= monthly_factor
+
+
+
+D = PredatoryCreditCard('Devin', 'MSU', '2882 229 292', 2000, 8.25)
+
+print(D.get_balance())
+print(D.get_account())
+print(D.charge(230))
+
+# making payment to card
+D.make_payment(69)
+               
+# getting balance
+print(D.get_balance())
+
+#applying intrest
+D.process_month()
