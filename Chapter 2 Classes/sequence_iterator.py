@@ -18,3 +18,8 @@ class SequenceIterator:
   def __iter__(self):
     """By convention, an iterator must return itself as an iterator."""
     return self
+
+list_sequence =[3,2,45,2,3,69]
+A = SequenceIterator(list_sequence)
+
+print(A.__next__())
