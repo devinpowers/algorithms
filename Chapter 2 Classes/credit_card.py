@@ -55,7 +55,7 @@ class CreditCard:
 
 if __name__ == '__main__':
   wallet = []
-  wallet.append(CreditCard('John Bowman', 'California Savings',
+  wallet.append(CreditCard('Devin Powers', 'Michigan Savings',
                            '5391 0375 9387 5309', 2500) )
   wallet.append(CreditCard('John Bowman', 'California Federal',
                            '3485 0399 3395 1954', 3500) )
