@@ -40,3 +40,21 @@ root.left.left.data = "left 2"
 root.left.right = Tree()
 root.left.right.data = "left-right"
 
+# node class
+class Node:
+
+    def __init__(self, data):
+        # left child
+        self.left = None
+        # right child
+        self.right = None
+        # node's value
+        self.data = data
+
+    # print function
+    def PrintTree(self):
+        print(self.data)
+
+root = Node(27)
+
+root.PrintTree()
