@@ -40,4 +40,3 @@ root.left.left.data = "left 2"
 root.left.right = Tree()
 root.left.right.data = "left-right"
 
-
