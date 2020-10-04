@@ -1,60 +1,43 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 30 14:31:26 2020
 
-@author: devinpowers
-"""
-class Tree(object):
-    def __init__(self):
+
+# Python program to introduce Binary Tree 
+  
+# A class that represents an individual node in a 
+# Binary Tree 
+
+class Node: 
+    def __init__(self,key): 
         self.left = None
         self.right = None
-        self.data = None
+        self.val = key 
+  
+  
+# create root 
 
-root = Tree()
-root.data = "root"
-root.left = Tree()
-root.left.data = "left"
-root.right = Tree()
-root.right.data = "right"
+root = Node(1) 
 
-print(root.left.data)
-
-
-
-class Tree(object):
-    def __init__(self):
-        self.left = None
-        self.right = None
-        self.data = None
-
-root = Tree()
-root.data = "root"
-root.left = Tree()
-root.left.data = "left"
-root.right = Tree()
-root.right.data = "right"
-
-root.left.left = Tree()
-root.left.left.data = "left 2"
-root.left.right = Tree()
-root.left.right.data = "left-right"
-
-# node class
-class Node:
-
-    def __init__(self, data):
-        # left child
-        self.left = None
-        # right child
-        self.right = None
-        # node's value
-        self.data = data
-
-    # print function
-    def PrintTree(self):
-        print(self.data)
-
-root = Node(27)
-
-root.PrintTree()
+''' following is the tree after above statement 
+        1 
+      /   \ 
+     None  None'''
+  
+root.left = Node(2); 
+root.right = Node(3); 
+    
+''' 2 and 3 become left and right children of 1 
+           1 
+         /   \ 
+        2      3 
+     /    \    /  \ 
+   None None None None'''
+  
+  
+root.left.left = Node(4); 
+'''4 becomes left child of 2 
+           1 
+       /       \ 
+      2          3 
+    /   \       /  \ 
+   4    None  None  None 
+  /  \ 
+None None'''
