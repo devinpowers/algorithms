@@ -6,21 +6,41 @@ class TreeNode:
         
         self.data = data
         
-        self.childern = []
+        self.children = []
         
         self.parent = None
-    
+        
     def add_child(self,child):
         
         child.parent = self
         
-        self.childern.append(child)
+        self.children.append(child)
         
+        
+    def get_level(self):
+        
+        level = 0
+        p = self.parent
+        while p:
+            level += 1
+            p = p.parent
+
+        return level
+
     def print_tree(self):
-        print(self.data)
-        if self.childern:
-            for child in self.childern:
+        
+        spaces = ' ' * self.get_level() * 3
+        prefix = spaces + "|__" if self.parent else ""
+        print(prefix + self.data)
+        
+        
+        
+        if self.children:
+            for child in self.children:
                 child.print_tree()
+
+        
+   
             
 def build_product_tree():
     root = TreeNode("Electronics")
@@ -49,6 +69,10 @@ def build_product_tree():
     
 
 if __name__ == '__main__':
+
+    
     root = build_product_tree()
     root.print_tree()
-    pass
+    
+    
+    
