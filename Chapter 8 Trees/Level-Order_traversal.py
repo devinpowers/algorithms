@@ -2,6 +2,7 @@
 '''https://www.youtube.com/watch?v=aM-oswPn19o&list=PL5tcWHG-UPH112e7AN7C-fwDVPVrt0wpV&index=35'''
 
 class Queue(object):
+    
     def __init__(self):
         self.items = []
 
@@ -44,6 +45,8 @@ class BinaryTree(object):
             return self.inorder_print(tree.root, "")
         elif traversal_type == "postorder":
             return self.postorder_print(tree.root, "")
+        
+        
         elif traversal_type == "levelorder":
             return self.levelorder_print(tree.root)
 
@@ -103,3 +106,4 @@ tree.root.left.left = Node(4)
 tree.root.left.right = Node(5)
 
 print(tree.print_tree("levelorder"))
+
