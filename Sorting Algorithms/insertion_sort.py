@@ -3,7 +3,6 @@ from time import time
 ''' insertion sort Algorithm'''
 
 
-
 def insertion_sort(list_to_sort):
     
     indexing_length = range(1, len(list_to_sort))
@@ -22,9 +21,7 @@ def insertion_sort(list_to_sort):
     return list_to_sort
 
 
-
-
-array = [7,2,1,6,8,5,3,102,1,31,45,232,4,25,12,8,2,4,2,0,9,12,6,2,4,1,3,2,0,12121,8,349,169,420,55,83,4,6,7,8,4,42,32,100,12,23,4,32,5,6,546,43,2,69,70,69]
+array = [7,2,1,6,8,5,3,102,1,31,45,232,4,25,12,8,2,4,2,0,9,12,6,2,4,1,3]
 
 start_time = time()
 
@@ -33,7 +30,6 @@ sorted_array = insertion_sort(array)
 end_time = time()
 
 print('Time to Complete Soring:', end_time-start_time)
-
 print(sorted_array)
 
 
