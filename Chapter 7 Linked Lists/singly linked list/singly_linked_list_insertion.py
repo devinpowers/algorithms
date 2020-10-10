@@ -6,7 +6,6 @@ class Node:
         self.data = data
         self.next = None
 
-
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -19,7 +18,7 @@ class LinkedList:
 
             print(cur_node.data)
             cur_node = cur_node.next
-
+    
     def append(self, data):
         '''Adding an element to the back of the linked list'''
         new_node = Node(data)
@@ -32,6 +31,7 @@ class LinkedList:
         while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
+    
     
     def prepend(self, data):
         new_node = Node(data)
@@ -49,17 +49,21 @@ class LinkedList:
 
         new_node.next = prev_node.next
         prev_node.next = new_node
-
-        
+                    
         
 llist = LinkedList()
 
 
 llist.append("A")
 llist.append("B")
-llist.prepend('D')
+llist.append("C")
+llist.append("E")
 
-llist.prepend('W')
+#llist.prepend('D')
 llist.print_list()
+
+
+#llist.prepend('W')
+#llist.print_list()
 
 
