@@ -95,6 +95,4 @@ llist.append("D")
 llist.delete_node("B")
 llist.delete_node_at_pos(2)
 
-
-
 llist.print_list()
