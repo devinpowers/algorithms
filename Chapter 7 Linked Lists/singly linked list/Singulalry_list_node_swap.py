@@ -103,45 +103,48 @@ class LinkedList:
         return 1 + self.len_recursive(node.next)
 
     '''swap by changing the next attribute of node'''
+    
     def swap_nodes(self, key_1, key_2):
 
         if key_1 == key_2:
             return 
 
-        prev_1 = None 
-        curr_1 = self.head 
-        while curr_1 and curr_1.data != key_1:
-            prev_1 = curr_1 
-            curr_1 = curr_1.next
+        previous_1 = None 
+        current_1 = self.head 
+        
+        while current_1  and current_1 .data != key_1:
+            previous_1 = current_1  
+            current_1  = current_1.next
 
-        prev_2 = None 
-        curr_2 = self.head 
-        while curr_2 and curr_2.data != key_2:
-            prev_2 = curr_2 
-            curr_2 = curr_2.next
+        previous_2 = None 
+        current_2 = self.head 
+        
+        while current_2 and current_2.data != key_2:
+            previous_2 = current_2 
+            current_2 = current_2.next
 
-        if not curr_1 or not curr_2:
+        if not current_1 or not current_2:
             return 
 
-        if prev_1:
-            prev_1.next = curr_2
+        if  previous_1:
+             previous_1.next = current_2
         else:
-            self.head = curr_2
+            self.head = current_2
 
-        if prev_2:
-            prev_2.next = curr_1
+        if previous_2:      
+           previous_2.next = current_1       
         else:
-            self.head = curr_1
-            
-        print('Before Swap')
-        print('current 1 next:', curr_1.data)
-        print('current 2 next:', curr_2.data)
+            self.head = current_1
+      
+        # swap Node.Next of Node 1 and Node 2 (current_1 and current_2 )
+        current_1.next,current_2.next = current_2.next,  current_1.next
         
-        curr_1.next, curr_2.next = curr_2.next, curr_1.next
+
         
-        print('\nAfter Swap')
-        print('current 1 next:', curr_1.data)
-        print('current 2 next:', curr_2.data)
+        
+        
+        
+        
         
     ''' Alternate swap node function , swap by changing the data attribute of node '''
     def swap_nodes_alt(self, key_1, key_2):
@@ -176,15 +179,14 @@ print("Initial list")
 llist.print_list()
 
 print(" swap by changing next attribute \n")
-
-llist.swap_nodes("A", "B")
+llist.swap_nodes("B", "C")
 
 llist.print_list()
 
 #print(" swap by changing data attribute \n ")
 #llist.swap_nodes_alt("B", "A")
 
-llist.print_list()
+#llist.print_list()
 
 
 
