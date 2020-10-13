@@ -143,6 +143,7 @@ class LinkedList:
 
         prev = None 
         cur = self.head
+        
         while cur:
             nxt = cur.next
             cur.next = prev
@@ -150,11 +151,18 @@ class LinkedList:
             self.print_helper(prev, "PREV")
             self.print_helper(cur, "CUR")
             self.print_helper(nxt, "NXT")
+            self.print_helper(cur.next, "cur.next")
             print("\n")
-
+            
             prev = cur 
             cur = nxt 
+    
+
+            
         self.head = prev
+
+
+
 
     def reverse_recursive(self):
 
@@ -178,7 +186,7 @@ llist.append("B")
 llist.append("C")
 llist.append("D")
 
-#llist.reverse_iterative()
-llist.reverse_recursive()
+llist.reverse_iterative()
+#llist.reverse_recursive()
 
 llist.print_list()
