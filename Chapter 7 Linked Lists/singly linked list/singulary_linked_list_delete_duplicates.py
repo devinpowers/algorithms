@@ -174,7 +174,7 @@ class LinkedList:
                 current = None
             
             else:
-                # have note encountered element before
+                # have not encountered element before
                 duplicate_values[current.data] = 1
                 previous = current
             
