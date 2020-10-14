@@ -92,7 +92,7 @@ llist.append("B")
 llist.append("C")
 llist.append("D")
 
-llist.delete_node("B")
-llist.delete_node_at_pos(2)
+llist.delete_node("A")
+#llist.delete_node_at_pos(2)
 
 llist.print_list()
