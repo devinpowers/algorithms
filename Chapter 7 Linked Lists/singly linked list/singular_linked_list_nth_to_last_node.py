@@ -226,38 +226,27 @@ class LinkedList:
 
     def print_nth_from_last(self, n):
         
-        total_length = self.length_iterative()
-        
-        current = self.head 
-        while current:
-            if total_length == n:
-                print(current.data)
-                
-                return current
+
+        p = self.head
+        q = self.head
+
+        count = 0
+        while q and count < n:
             
-            total_length -= 1
-            current = current.next
-        if current is None:
-           return
-       
-        
-       # Method 2:
-       # p = self.head
-        #q = self.head
+            q = q.next
+            count += 1
 
-        #count = 0
-        #while q and count < n:
-         #   q = q.next
-          #  count += 1
+        if not q:
+            
+            print(str(n) + " is greater than the number of nodes in list.")
+            return
 
-        #if not q:
-         #   print(str(n) + " is greater than the number of nodes in list.")
-          #  return
-
-        #while p and q:
-         #   p = p.next
-          #  q = q.next
-        #return p.data
+        while p and q:
+            
+            p = p.next
+            q = q.next
+            
+        return p.data
 
       
         
@@ -274,3 +263,17 @@ llist.append("F")
 llist.append("Q")
 
 print(llist.print_nth_from_last(2))
+
+total_length = self.length_iterative()
+        
+        current = self.head 
+        while current:
+            if total_length == n:
+                print(current.data)
+                
+                return current
+            
+            total_length -= 1
+            current = current.next
+        if current is None:
+           return

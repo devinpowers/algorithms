@@ -178,15 +178,45 @@ class LinkedList:
 
         self.head = _reverse_recursive(cur=self.head, prev=None)
 
+    def count_occurences_iterative(self, data):
+        
+        count = 0
+        current = self.head
+        while current:
+            if current.data == data:
+                count += 1
+            current = current.next
+        
+        return count 
+
+    def count_occurences_recursive(self, node, data):
+        
+        if not node:
+            return 0 
+        if node.data == data:
+            return 1 + self.count_occurences_recursive(node.next, data)
+        else:
+            return self.count_occurences_recursive(node.next, data)
 
         
 llist = LinkedList()
-llist.append("A")
-llist.append("B")
-llist.append("C")
-llist.append("D")
+llist.append(1)
+llist.append(1)
+llist.append(2)
+llist.append(3)
+llist.append(2)
+llist.append(1)
+llist.append(1)
 
-llist.reverse_iterative()
-#llist.reverse_recursive()
+#llist.print_list()
 
-llist.print_list()
+
+print(llist.count_occurences_iterative(1))
+
+
+
+
+
+
+
+
