@@ -133,3 +133,4 @@ class Tree:
         yield p                          # report this position
         for c in self.children(p):
           fringe.enqueue(c)              # add children to back of queue
+
