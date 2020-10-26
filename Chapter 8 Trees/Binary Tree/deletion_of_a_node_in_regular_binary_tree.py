@@ -17,6 +17,7 @@ def inorder(temp):
    
 # function to delete the given deepest node (d_node) in binary tree  
 def deleteDeepest(root,d_node): 
+    print("d _node:", d_node.data)
     q = [] 
     q.append(root) 
     while(len(q)): 
@@ -36,16 +37,24 @@ def deleteDeepest(root,d_node):
                 return
             else: 
                 q.append(temp.left) 
+                
+                
+                
+                
+                
    
 # function to delete element in binary tree  
 def deletion(root, key): 
     if root == None : 
         return None
+    
     if root.left == None and root.right == None: 
         if root.key == key :  
             return None
         else : 
             return root 
+        
+        
     key_node = None
     q = [] 
     q.append(root) 
@@ -59,6 +68,7 @@ def deletion(root, key):
             q.append(temp.right) 
     if key_node :  
         x = temp.data 
+        print('temp data',temp.data)
         deleteDeepest(root,temp) 
         key_node.data = x 
     return root 
@@ -75,6 +85,8 @@ root.right.right = Node(8)
 
 print("The tree before the deletion:") 
 inorder(root) 
+
+
 key = 12
 root = deletion(root, key) 
 print() 
