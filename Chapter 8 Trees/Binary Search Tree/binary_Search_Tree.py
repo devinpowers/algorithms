@@ -79,19 +79,46 @@ class BST:
             
             return True
         
+    
+    def height(self):
+        
+        if self.root!=None:
+            
+            return self._height(self.root, 0)
+        
+        else:
+            return 0
+        
+    def _height(self, current_node, current_height):
+        
+        if current_node == None:
+            return current_height
+        
+        left_height= self._height(current_node.left,current_height+1)
+        
+        right_height=self._height(current_node.right,current_height+1)
+        
+        return max(left_height,right_height)
+        
 
 
 bst = BST()
 
-bst.insert(4)
-bst.insert(2)
 bst.insert(8)
-bst.insert(5)
+bst.insert(3)
 bst.insert(10)
+bst.insert(2)
+bst.insert(6)
+bst.insert(9)
+bst.insert(11)
+bst.insert(1)
 
 
 
 print(bst.find(10))
+
+
+print(bst.height())
 
     
 
