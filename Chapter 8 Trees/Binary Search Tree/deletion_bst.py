@@ -5,6 +5,7 @@ class Node(object):
         self.data = data
         self.left = None
         self.right = None
+        
 
 class BST:
     
@@ -23,7 +24,8 @@ class BST:
         
         if data < current_node.data:       
             if current_node.left is None:           
-                current_node.left = Node(data)           
+                current_node.left = Node(data)    
+                
             else:
                 self._insert(data, current_node.left)   
         elif data > current_node.data:       

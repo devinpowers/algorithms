@@ -24,6 +24,7 @@ class binary_search_tree:
 		if value<cur_node.value:
 			if cur_node.left_child==None:
 				cur_node.left_child=node(value)
+                
 				cur_node.left_child.parent=cur_node # set parent
 			else:
 				self._insert(value,cur_node.left_child)
@@ -87,6 +88,8 @@ class binary_search_tree:
 			return self._find(value,cur_node.right_child)
 
 	def delete_value(self,value):
+        
+        
 		return self.delete_node(self.find(value))
 
 	def delete_node(self,node):
