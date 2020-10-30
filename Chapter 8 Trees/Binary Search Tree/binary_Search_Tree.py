@@ -10,8 +10,6 @@ class Node(object):
         self.right = None
         self.parent = None
 
-
-
 class BST:
     
     def __init__(self):
@@ -190,14 +188,11 @@ class BST:
         
         node_parent = node.parent
         
-
 		# get the number of children of the node to be deleted
         
         node_childern = number_childern(node)
-
         # break operation into different cases based on the
-		# structure of the tree & node to be deleted
-
+		# structure of the tree & node to be delete
 		# CASE 1 (node has no children)
         
         if node_childern == 0:
@@ -257,11 +252,13 @@ class BST:
             
             sucessor = min_value_node(node.right)
             
-            #copy the inorder successor's value to the node formerly holding the value we wished to delete
+            #copy the inorder successor's value to the node
+            #formerly holding the value we wished to delete
             
             node.data = sucessor.data
             
-            #delete the inorder sucessor now that it's value was copied into th other node
+            #delete the inorder sucessor now that it's value
+            #was copied into th other node
             
             self.delete_node(sucessor)
         
@@ -284,6 +281,9 @@ bst.insert(1)
 bst.delete_value(8)
 
 bst.print_tree()
+
+
+
     
 
 
