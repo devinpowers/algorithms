@@ -281,6 +281,8 @@ bst.insert(1)
 bst.delete_value(8)
 
 bst.print_tree()
+bst._find(bst.root,10)
+
 
 
 
