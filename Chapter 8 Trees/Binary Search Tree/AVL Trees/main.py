@@ -327,3 +327,19 @@ class AVLTree:
 		left=self.get_height(cur_node.left_child)
 		right=self.get_height(cur_node.right_child)
 		return cur_node.left_child if left>=right else cur_node.right_child
+
+a = AVLTree()
+
+a.insert(100)
+a.insert(30)
+a.insert(55)
+a.insert(23)
+a.insert(34)
+a.insert(120)
+a.insert(245)
+
+a.print_tree()
+
+print(a.__repr__())
+
+
