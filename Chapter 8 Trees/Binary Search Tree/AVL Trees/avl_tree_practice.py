@@ -119,12 +119,20 @@ root = None
   
 root = myTree.insert(root, 10) 
 root = myTree.insert(root, 20) 
+
 root = myTree.insert(root, 30) 
 root = myTree.insert(root, 40) 
 root = myTree.insert(root, 50) 
+root = myTree.insert(root, 35) 
+
 root = myTree.insert(root, 25) 
-root = myTree.insert(root, 24)
-root = myTree.insert(root, 23) 
+
+root = myTree.insert(root, 55) 
+
+root = myTree.insert(root, 60) 
+
+
+
  
 
 

@@ -124,31 +124,7 @@ class BST:
         return max(left_height,right_height)
     
     
-    def find(self, value):
-        
-        if self.root != None:
-            
-            return self._find(value,self.root )   # recurseive Call to _find Function
-        
-        else:
-            return None
     
-    def _find(self, value, current_node):
-        
-        if value == current_node.data:
-            
-            return current_node
-        
-        elif value < current_node.data and current_node.left != None:
-            return self._find(value, current_node.left)
-        
-        elif value > current_node.data and current_node.right != None:
-            return self._find(value, current_node.right)
-
-    def delete_value(self,value):
-        
-        return self.delete_node(self.find(value))
-        
         
     def delete_node(self, node):
         
@@ -278,7 +254,6 @@ bst.insert(1)
 
 
 
-bst.delete_value(8)
 
 bst.print_tree()
 bst._find(bst.root,10)

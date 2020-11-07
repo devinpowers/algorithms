@@ -205,6 +205,8 @@ tree.insert(70)
 
 print(tree.height())
 
+print(tree.print_tree())
+
 
 
 
