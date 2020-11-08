@@ -1,151 +1,188 @@
+import sys
 
+class Node(object):
 
-        
-class TreeNode(object): 
-    def __init__(self, val): 
-        self.val = val 
+    def __init__(self, data = None):
+
+        self.data = data
         self.left = None
         self.right = None
-        self.height = 1 
-# AVL tree class which supports the  
-# Insert operation 
-class AVL_Tree(object): 
-  
-    # Recursive function to insert key in  
-    # subtree rooted with node and returns 
-    # new root of subtree. 
-    def insert(self, root, key): 
-      
-        # Step 1 - Perform normal BST 
-        if not root: 
-            return TreeNode(key) 
-        elif key < root.val: 
-            root.left = self.insert(root.left, key) 
-        else: 
-            root.right = self.insert(root.right, key) 
-  
+        self.height = 1
     
-        # Step 2 - Update the height of the  
-        # ancestor node 
-        root.height = 1 + max(self.getHeight(root.left), 
-                           self.getHeight(root.right)) 
-  
-        # Step 3 - Get the balance factor 
-        balance = self.getBalance(root) 
-  
-        # Step 4 - If the node is unbalanced,  
-        # then try out the 4 cases 
-        # Case 1 - Left Left 
-        if balance > 1 and key < root.left.val: 
-            return self.rightRotate(root) 
-  
-        # Case 2 - Right Right 
-        if balance < -1 and key > root.right.val: 
-            return self.leftRotate(root) 
-  
-        # Case 3 - Left Right 
-        if balance > 1 and key > root.left.val: 
-            root.left = self.leftRotate(root.left) 
-            return self.rightRotate(root) 
-  
-        # Case 4 - Right Left 
-        if balance < -1 and key < root.right.val: 
-            root.right = self.rightRotate(root.right) 
-            return self.leftRotate(root) 
-  
-        return root 
-  
-    def leftRotate(self, z): 
-  
-        y = z.right 
-        T2 = y.left 
-  
-        # Perform rotation 
-        y.left = z 
-        z.right = T2 
-  
-        # Update heights 
-        z.height = 1 + max(self.getHeight(z.left), 
-                         self.getHeight(z.right)) 
-        y.height = 1 + max(self.getHeight(y.left), 
-                         self.getHeight(y.right)) 
-  
-        # Return the new root 
-        return y 
-  
-    def rightRotate(self, z): 
-  
-        y = z.left 
-        T3 = y.right 
-  
-        # Perform rotation 
-        y.right = z 
-        z.left = T3 
-  
-        # Update heights 
-        z.height = 1 + max(self.getHeight(z.left), 
-                        self.getHeight(z.right)) 
-        y.height = 1 + max(self.getHeight(y.left), 
-                        self.getHeight(y.right)) 
-  
-        # Return the new root 
-        return y 
-  
-    def getHeight(self, root): 
-        if not root: 
+class AVL():
+
+    def __init__(self):
+
+        self.root = None
+
+    def insert(self, data):
+
+        if self.root is None:
+
+            self.root = Node(data)
+
+        else:
+            self._insert(data,self.root)
+            
+            
+
+    def _insert(self, data, current_node):
+
+        if data < current_node.data:
+
+            if current_node.left is None:
+
+                current_node.left = Node(data)
+
+            else:
+                self._insert(data, current_node.left)
+
+        elif data > current_node.data:
+
+            if current_node.right is None:
+
+                current_node.right = Node(data)
+
+            else:
+                self._insert(data, current_node.right)
+
+        else:
+            print("Value is Already present in Tree.")
+            
+        
+        current_node.height = 1 + max(self.GetHeight(current_node.left),self.GetHeight(current_node.right))
+        
+                
+        # Update the balance factor and balance the tree
+        
+        
+        balanceFactor = self.GetBalance(current_node)
+        
+        if balanceFactor > 1:
+            
+            if data < current_node.left.data:
+                
+                return self.rightRotate(current_node)
+            
+            else:
+                current_node.left = self.leftRotate(current_node.left)
+                
+                return self.rightRotate(current_node)
+
+        if balanceFactor < -1:
+            
+            if data > current_node.right.data:
+                
+                return self.leftRotate(current_node)
+            
+            else:
+                current_node.right = self.rightRotate(current_node.right)
+                
+                return self.leftRotate(current_node)
+
+        return current_node
+
+        
+        
+        
+    # Function to perform left rotation
+    def leftRotate(self, z):
+        y = z.right
+        T2 = y.left
+        y.left = z
+        z.right = T2
+        z.height = 1 + max(self.GetHeight(z.left),self.GetHeight(z.right))
+        y.height = 1 + max(self.GetHeight(y.left),self.GetHeight(y.right))
+        return y
+
+    # Function to perform right rotation
+    def rightRotate(self, z):
+        y = z.left
+        T3 = y.right
+        y.right = z
+        z.left = T3
+        z.height = 1 + max(self.GetHeight(z.left),self.GetHeight(z.right))
+        y.height = 1 + max(self.GetHeight(y.left),self.GetHeight(y.right))
+        
+        return y
+
+
+    # Get Balance of the Node were on
+       
+    
+    def GetBalance(self, current_node):
+        
+        if not current_node:
+            
             return 0
-  
-        return root.height 
-  
-    def getBalance(self, root): 
-        if not root: 
+        
+        return self.GetHeight(current_node.left) - self.GetHeight(current_node.right)
+    
+            
+    
+    # Get the Height of the Node
+       
+    
+    def GetHeight(self, current_node):
+        
+        if not current_node:
+            
             return 0
-  
-        return self.getHeight(root.left) - self.getHeight(root.right) 
-  
-    def preOrder(self, root): 
-  
-        if not root: 
-            return
-  
-        print("{0} ".format(root.val), end="") 
-        self.preOrder(root.left) 
-        self.preOrder(root.right) 
-  
-  
-# Driver program to test above function 
-myTree = AVL_Tree() 
-root = None
-  
-root = myTree.insert(root, 10) 
-root = myTree.insert(root, 20) 
+        
+        return current_node.height
+              
+            
+    
+    def print_tree(self):
+        '''Inorder Traversal'''
+        
+        if self.root != None:
+            
+            self._print_tree(self.root)
+     
+        
+    def _print_tree(self, current_node):
+        
+        if current_node != None:
+            
+            self._print_tree(current_node.left)
+            print(str(current_node.data))
+            self._print_tree(current_node.right)
+            
+    def printHelper(self, currPtr, indent, last):
+        if currPtr != None:
+            sys.stdout.write(indent)
+            if last:
+                sys.stdout.write("R----")
+                indent += "     "
+            else:
+                sys.stdout.write("L----")
+                indent += "|    "
+            print(currPtr.data)
+            self.printHelper(currPtr.left, indent, False)
+            self.printHelper(currPtr.right, indent, True)
 
-root = myTree.insert(root, 30) 
-root = myTree.insert(root, 40) 
-root = myTree.insert(root, 50) 
-root = myTree.insert(root, 35) 
+            
 
-root = myTree.insert(root, 25) 
+mytree = AVL()
 
-root = myTree.insert(root, 55) 
+mytree.insert(33)
+mytree.insert(13)
+mytree.insert(52)
+print("")
+mytree.insert(9)
+mytree.insert(21)
 
-root = myTree.insert(root, 60) 
+mytree.insert(61)
+
+mytree.insert(8)
+mytree.insert(11)
+
+mytree.print_tree()
+print("")
+
+mytree.printHelper(mytree.root , "", True)
 
 
 
- 
-
-
-  
-"""The constructed AVL Tree would be 
-            30 
-           /  \ 
-         20   40 
-        /  \     \ 
-       10  25    50"""
-  
-# Preorder Traversal 
-print("Preorder traversal of the", 
-      "constructed AVL tree is") 
-myTree.preOrder(root) 
-print() 
+   

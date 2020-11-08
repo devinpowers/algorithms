@@ -76,6 +76,8 @@ tree.insert(15)
 tree.insert(55)    
 tree.insert(70)
 
+tree.print_tree()
+
 
 "         50           "
 "       /     \         "
