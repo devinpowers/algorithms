@@ -52,12 +52,13 @@ class AVL():
         
         current_node.height = 1 + max(self.GetHeight(current_node.left),self.GetHeight(current_node.right))
         
-                
+        
         # Update the balance factor and balance the tree
         
         
-        balanceFactor = self.GetBalance(current_node)
         
+        balanceFactor = self.GetBalance(current_node)
+                
         if balanceFactor > 1:
             
             if data < current_node.left.data:
@@ -68,6 +69,8 @@ class AVL():
                 current_node.left = self.leftRotate(current_node.left)
                 
                 return self.rightRotate(current_node)
+
+
 
         if balanceFactor < -1:
             
@@ -87,21 +90,34 @@ class AVL():
         
     # Function to perform left rotation
     def leftRotate(self, z):
+        
         y = z.right
+        
         T2 = y.left
+        
         y.left = z
+        
         z.right = T2
+        
         z.height = 1 + max(self.GetHeight(z.left),self.GetHeight(z.right))
+        
         y.height = 1 + max(self.GetHeight(y.left),self.GetHeight(y.right))
+        
         return y
 
     # Function to perform right rotation
     def rightRotate(self, z):
+        
         y = z.left
+        
         T3 = y.right
+        
         y.right = z
+        
         z.left = T3
+        
         z.height = 1 + max(self.GetHeight(z.left),self.GetHeight(z.right))
+        
         y.height = 1 + max(self.GetHeight(y.left),self.GetHeight(y.right))
         
         return y
@@ -145,8 +161,9 @@ class AVL():
         
         if current_node != None:
             
+            print("{} ".format(current_node.data), end="")
+            
             self._print_tree(current_node.left)
-            print(str(current_node.data))
             self._print_tree(current_node.right)
             
     def printHelper(self, currPtr, indent, last):
@@ -168,21 +185,29 @@ mytree = AVL()
 
 mytree.insert(33)
 mytree.insert(13)
-mytree.insert(52)
-print("")
-mytree.insert(9)
-mytree.insert(21)
-
+mytree.insert(53)
 mytree.insert(61)
-
-mytree.insert(8)
+mytree.insert(21)
 mytree.insert(11)
 
+
+    
+
+
+#mytree.print_tree()
+print("")
+#mytree.printHelper(mytree.root , "", True)
+
+mytree.insert(8)
 mytree.print_tree()
 print("")
+#mytree.printHelper(mytree.root , "", True)
 
-mytree.printHelper(mytree.root , "", True)
+#mytree.insert(8)
+
+mytree.insert(9)
+mytree.print_tree()
 
 
-
+#mytree.printHelper(mytree.root , "", True)
    
