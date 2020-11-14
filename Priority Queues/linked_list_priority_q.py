@@ -14,16 +14,18 @@ class PriorityQueue:
     # Returns a boolean value indicating whether the queue is empty
     def isEmpty(self):
         return self.front == None
+    
 
     # Adds the given item to the queue by inserting it in the proper 
     # position based on the given priority. The new node is appended to 
     # the end of the linked list
     def enqueue(self, item, priority):
         newNode = Node(item, priority)
+        
         if not self.rear:
             self.front = self.rear = newNode
             return
-        if self.front.priority < newNode.priority:
+        if self.front.priority <= newNode.priority:
             newNode.next = self.front
             self.front = newNode
             return
@@ -58,7 +60,7 @@ class PriorityQueue:
 q = PriorityQueue()
 
 q.enqueue('Devin', 1)
-q.enqueue('Kobe', 4)
+q.enqueue('Kobe', 1)
 q.enqueue('Lebron', 2)
 q.enqueue('Michael', 3)
 
@@ -67,6 +69,7 @@ print(q.dequeue())
 print(q.dequeue())
 print(q.dequeue())
 print(q.dequeue())
+
 
 
 
