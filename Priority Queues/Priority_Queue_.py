@@ -29,7 +29,7 @@ class PriorityQueue:
         
         if self.front.priority < newNode.priority:
             
-            newNode.next = self.front()
+            newNode.next = self.front
             
             self.fron = newNode
             
@@ -44,7 +44,8 @@ class PriorityQueue:
         if current:
             
             previous.next = newNode
-            newNode.rear = current
+            
+            newNode.next = current
         
         else:
             self.rear.next = newNode
