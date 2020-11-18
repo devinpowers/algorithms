@@ -57,10 +57,7 @@ class PriorityQueue:
             self.rear.next = newNode
             self.rear = newNode
 
-    # Removes and returns the next item from the queue, which is the 
-    # item with the highest priority. If two or more items have the 
-    # same priority, those items are removed in FIFO order. An item 
-    # cannot be dequeued from an empty queue. 
+
     def dequeue(self):
         if self.isEmpty():
             print('Queue is empty')
