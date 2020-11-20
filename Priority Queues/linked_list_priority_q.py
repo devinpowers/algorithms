@@ -9,7 +9,6 @@ class Node:
         self.next = None
         self.priority = priority
 
-
 class PriorityQueue:
     
     def __init__(self):
@@ -22,9 +21,6 @@ class PriorityQueue:
         return self.front == None   #Return True if Empty
     
 
-    # Adds the given item to the queue by inserting it in the proper 
-    # position based on the given priority. The new node is appended to 
-    # the end of the linked list
     def enqueue(self, item, priority):
         
         newNode = Node(item, priority)
