@@ -13,6 +13,10 @@ class MinHeap:
         self.heap_list = [0]
         
         self.current_size = 0
+        
+    def print_(self):
+        '''Print MinHeap'''
+        return self.heap_list
  
     def sift_up(self, i):
         """
@@ -95,3 +99,5 @@ my_heap.insert(11)
 my_heap.insert(10)
 
 print(my_heap.delete_min()) # removing min node i.e 5 
+
+print(my_heap.print_())
