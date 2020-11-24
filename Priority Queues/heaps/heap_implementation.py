@@ -1,5 +1,7 @@
 class Heap(object):
+    
     def __init__(self):
+        
         self.__array = []
         self.__last_index = -1
 
@@ -53,12 +55,22 @@ class Heap(object):
             until the input list is one big heap.
         """
         n = len(input_list)
+        
         self.__array = input_list
+        
         self.__last_index = n-1
+        
         for index in reversed(range(n//2)):
+            
             self.__siftdown(index)
 
+
+
+
+
+
     @classmethod
+    
     def createHeap(cls, input_list):
         """
             create an heap based on an inputted list.
@@ -68,6 +80,7 @@ class Heap(object):
         return heap
 
     def __siftdown(self, index):
+        
         current_value = self.__array[index]
         left_child_index, left_child_value = self.__get_left_child(index)
         right_child_index, right_child_value = self.__get_right_child(index)
@@ -122,6 +135,9 @@ class Heap(object):
         if isinstance(other, list):
             return self.__array == other
         return NotImplemented
+    
+    
+    
 
 class MinHeap(Heap):
     def comparer(self, value1, value2):
@@ -130,6 +146,17 @@ class MinHeap(Heap):
 class MaxHeap(Heap):
     def comparer(self, value1, value2):
         return value1 > value2
+
+
+
+
+
+
+
+
+
+
+
 
 
 def manualTest():
@@ -191,6 +218,7 @@ def automaticTest(sample_size):
         assert(max_heap.pop() == i)
 
 automaticTest(20)
+
 manualTest()
 
 
