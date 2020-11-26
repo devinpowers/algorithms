@@ -1,6 +1,8 @@
+""" Max Heap Deletion and insertion"""
 
 
-class MinHeap:
+
+class MaxHeap:
     
     def __init__(self):
         """
@@ -32,23 +34,23 @@ class MinHeap:
         
         # if the current node has at least one child
         
-        print('Index:',i)
+
         
         while (i * 2) <= self.current_size:
             
             # Get the index of the min child of the current node
-            miniumum_child = self.min_child(i)
-            
+           maximum_child = self.max_child(i)
+           
+ 
             # Swap the values of the current element is greater than its min child
             
-            if self.heap_list[i] > self.heap_list[miniumum_child]:
+            if self.heap_list[i] > self.heap_list[maximum_child]:
+            
                 
-    
-                self.heap_list[i], self.heap_list[miniumum_child] = self.heap_list[miniumum_child], self.heap_list[i]
-                
-            i = miniumum_child
+                self.heap_list[i], self.heap_list[maximum_child] = self.heap_list[maximum_child], self.heap_list[i]
+            i = maximum_child
  
-    def min_child(self, i):
+    def max_child(self, i):
         
         # If the current node has only one child, return the index of the unique child
         
@@ -67,7 +69,7 @@ class MinHeap:
             
             
  
-    def delete_min(self):
+    def delete_max(self):
         
         # Equal to 1 since the heap list was initialized with a value
         
@@ -96,24 +98,15 @@ class MinHeap:
         self.sift_down(1)
         
  
-        # Return the min value of the heap
+        # Return the max value of the heap
         return root
-"""
-Driver program
-"""
-# Same tree as above example.
-my_heap = MinHeap()
-my_heap.insert(10)
-my_heap.insert(30)
-my_heap.insert(20)
-my_heap.insert(35)
-my_heap.insert(40)
-my_heap.insert(32)
-my_heap.insert(25)
-print("Before Deletion")
 
-print(my_heap.print_())
 
-print("\nAfter Deletion")
-print(my_heap.delete_min()) # removing min node i.e 5 
-print(my_heap.print_())
+
+
+
+
+
+
+
+

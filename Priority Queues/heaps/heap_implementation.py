@@ -1,5 +1,6 @@
 class Heap(object):
     
+
     def __init__(self):
         
         self.__array = []
