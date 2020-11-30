@@ -129,6 +129,8 @@ class Heap:
 
             self.heapify(small)
       
+        def new_function():
+            
         
         
         
