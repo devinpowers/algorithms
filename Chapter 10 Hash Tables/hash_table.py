@@ -112,11 +112,18 @@ class HashTable:
 			return result
 	
 
-C = HashTable()
-
-C.insert("Devin", 23)
-C.insert("Powers", 2)
-C.insert("Abe", 233)
+ht = HashTable()
 
 
-print(C.__str__)
+
+# create some data to be stored
+
+phone_numbers = ["616-914-8235", "616-364-1338"]
+
+
+ht.insert("PhoneDirectory", phone_numbers)
+
+
+numbers = ht.find("PhoneDirectory")
+
+print(numbers)
