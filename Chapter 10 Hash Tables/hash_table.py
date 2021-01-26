@@ -4,8 +4,11 @@
 
 # create a new HashTable
 
-INITIAL_CAPACITY = 50
+INITIAL_CAPACITY = 5
 # Node data structure - essentially a LinkedList node
+
+long num = 9;
+
 
 class Node:
 	def __init__(self, key, value):
@@ -118,12 +121,69 @@ ht = HashTable()
 
 # create some data to be stored
 
-phone_numbers = ["616-914-8235", "616-364-1338"]
+#phone_numbers = ["616-914-8235", "616-364-1338"]
+
+names = ["Devin", "Austin", "Abe", "Lebron", "Chris"]
+
+heat = ["Lebron", "Wade", "Bosh"]
+
+pistons = ["Wallace", "Billups", "Hamilton", "Prince"]
+
+bulls =["Jordan", "Pippin", "Rose"]
+
+bucks = ["Giannas", "Redd", "Allen"]
+
+clippers = ["Griffin", "Paul"]
+
+knicks = ["Melo", "noah", "Fisher", "Tommy", "SIDS"]
+
+#ht.insert("PhoneDirectory", phone_numbers)
+
+ht.insert("Names", names)
+ht.insert("Pistons", pistons)
+ht.insert("Bulls", bulls)
+ht.insert("Bucks", bucks)
+ht.insert("Clippers", clippers)
+ht.insert("Knicks", knicks)
 
 
-ht.insert("PhoneDirectory", phone_numbers)
+
+value = ht.find("Clippers")
+
+print(value)
 
 
-numbers = ht.find("PhoneDirectory")
 
-print(numbers)
+##numbers = ht.find("PhoneDirectory")
+
+##rint(numbers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
