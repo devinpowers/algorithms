@@ -115,7 +115,9 @@ class HashMap:
         for bucket in self.table:
             for item in bucket:
                 # key, value
+                #print("Item 0:", item[0], " : " "Item 1:", item[1])
                 yield item[0], item[1]
+               
 
     def clear(self):
         """
@@ -130,10 +132,8 @@ class HashMap:
         Return list of all keys in table
         :return: list of keys
         """
-        # use iterator
+        # use iterator!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return set(k for k, v in self)
-    
-    
     
     
     
@@ -243,11 +243,11 @@ ht.__setitem__("Warriors", warriors)
 
 ## Different Functions 
 
-ht.__getitem__("Lakers")
+#ht.__getitem__("Lakers")
 
-ht.__contains__("Heat")
+#ht.__contains__("Heat")
 
-print(ht.check_size)
+#print(ht.check_size)
 
 
 

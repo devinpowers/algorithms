@@ -5,26 +5,31 @@ Practice
 
 """
 
-size = 10
 
-key = "jill"
+##my_list = [1,2,3,4]
 
-# hash sum will be an index for our internal buckets array!
-
-hash_sum = 0
-
-for index, c in enumerate(key):
-    ##print(index, ": ", c)
+my_list = [x*x for x in range(4)]
+mygenerator = (x*x for x in range(3))
+#for i in my_list:
+ #   print(i)
     
-  ## print("Index  + length of key: ", index, ": ", len(key), " c is: ", c, " what is order for this c?: ", ord(c))
+for i in mygenerator:
+    print(i)
     
     
-    hash_sum  += (index + len(key)) ** ord(c)
-    
-    hash_sum = hash_sum % size
+        
+def createGenerator():
+    mylist = range(3)
+    for i in mylist:
+        yield i*i
+        
+mygenerator = createGenerator()
+
+print(mygenerator)
 
 
-print("Hash Sum Return for", key, "is: ", hash_sum)
+for i in mygenerator:
+    print(i)
 
 
 

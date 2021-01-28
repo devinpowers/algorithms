@@ -7,7 +7,6 @@
 INITIAL_CAPACITY = 5
 # Node data structure - essentially a LinkedList node
 
-long num = 9;
 
 
 class Node:

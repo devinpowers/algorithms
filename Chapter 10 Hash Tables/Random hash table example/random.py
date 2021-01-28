@@ -20,6 +20,7 @@ class HashTable(object):
 
     def _bucket_index(self, key):
         """Return the bucket index where the given key would be stored."""
+        print("Bucket Index: ",  hash(key) % len(self.buckets))
         return hash(key) % len(self.buckets)
 
     def load_factor(self):
@@ -135,6 +136,8 @@ class HashTable(object):
         such as 0.75 after an insertion (when set is called with a new key).
         Best and worst case running time: ??? under what conditions? [TODO]
         Best and worst case space usage: ??? what uses this memory? [TODO]"""
+        
+        print("If this is printed, were Resizing the Hash Table")
         # If unspecified, choose new size dynamically based on current size
         if new_bucket_count is None:
             new_bucket_count = len(self.buckets) * 2  # Double the bucket
