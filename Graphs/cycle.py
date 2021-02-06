@@ -54,5 +54,4 @@ if __name__ == '__main__':
         'V4': {'V0': 1},
         'V5': {'V2': 1, 'V4': 8}
     }
-    
     print('Is there a cycle in the graph? ', cycle_check(graph))
