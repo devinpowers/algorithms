@@ -11,30 +11,30 @@ graph = {'A': set(['B', 'C']),
 
 
 
+
 def dfs(graph,start):
+    
     visited = set()
     stack = [start]
     
     while stack: ## isnt empty
+    
         
         vertex = stack.pop() ## pop vertex/node from stack
         
-        print("Vertex:", vertex)
         if vertex not in visited: ## 
             
             visited.add(vertex) 
             
+            print(graph[vertex] - visited)
             
             stack.extend(graph[vertex]-visited)
-            
-            #print(stack)
-            
+                        
     return visited
 
 
 # dfs with graph and D which is the starting point
 
-vis = dfs(graph,'C')
+vis = dfs(graph,'A')
 print(vis)
-
 

@@ -4,12 +4,15 @@
 class Stack():
 
     def __init__(self):
+        
         self.items = []
     
     def push(self, item):
+        
         self.items.append(item)				
     
     def pop(self):
+        
         return self.items.pop()
     
     def is_empty(self):
@@ -60,35 +63,32 @@ class Graph:
         
         for node in self.nodes:
             print(node, "->", self.adj_list[node])
-
-
-
-
-def depth_first_search(graph, starting_node):
-    
-    
-    # have to find size of the graph, number of nodes
-    
-    visted = set()
-    print(visted)
-    
-    stack = Stack()  # creating a stack object
-    
-    stack.push(starting_node)
-    
-    while stack:
-        
-        vertex = stack.pop()
-        
-        if vertex not in visted:
             
-            visted.add(vertex)
-            #stack.push(graph[vertex]- visted)
+    def __getitem__(self, node):
         
+        
+        return self.adj_list[node]
+        
+
+
+visted = []
+
+def depth_first_search(graph, node):
+    
+       
+    if node not in visted:
+        
+        visted.append(node)
+        
+        for neighbor in graph[node]:
+            depth_first_search(graph, neighbor)
+        
+      
+    
     return visted
 
 
-    
+
 
 
 # need to populate our Graph:
@@ -110,13 +110,13 @@ g.print_adj_list()
 
 ### Now lets use the Depth First Search using our Graph g:
     
-visted = depth_first_search(g, "A")
+answer = depth_first_search(g, "A")
 
 
 
 
 
-
+print(answer)
 
 
 
