@@ -1,4 +1,3 @@
-
 class Graph:
 
     def __init__(self, Nodes, is_directed = False):
@@ -28,42 +27,46 @@ class Graph:
         for node in self.nodes:
             print(node, "->", self.adj_list[node])
 
-    def __len__(self):
-        return len(self.nodes)
-
     def __getitem__(self, node):
 
         """retrives items from out Node/vertex"""
 
         return  self.adj_list[node]
 
-    def __iter__(self):
-        return iter(self.adj_list)
-
 
 all_edges = [
 
-    ("A","D"),("B","D"),("C","B"),("C","A"),("E","A"),("E","D"),
-    ("E","F"),("D","H"),("D","G"),("F","K"),("F","J"),("H","J"),
-    ("H","I"),("G","I"),("K","J"),("J","M"),("J","L"),("I","L")
-
+    ("A","B"),("A","C"),("B","D"),("C","D"),("C","E"),("D","E")
 ]
-nodes = ["A","B","C","D","E","F","G","H","I","J","K","L","M"]
+nodes = ["A","B","C","D","E"]
 
-graph1 = Graph(nodes, is_directed = True)
+graph1 = Graph(nodes)
+#graph1.print_adj_list()
 
 for u,v in all_edges:
     graph1.add_edge(u,v)
 
+##graph.add_edge("A","B")
 graph1.print_adj_list()
 
 
 
+visited = []
+
+def dfs(graph, node):
+
+    if node not in visited:
+
+        visited.append(node)
+
+        for neighbor in graph[node]:
+
+            dfs(graph,neighbor)
+
+    return visited
 
 
+dfs(graph1, "A")
 
 
-D.addRear("A")
-D.addRear("D")
-D.addRear("C")
-D.size()
+print("Nodes Visted: ", visited)
